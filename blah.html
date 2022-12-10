@@ -1,0 +1,101 @@
+import "./Signin.css";
+import { Variables } from "../../Variables";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import {useState, useEffect} from "react"
+import { useNavigate } from "react-router-dom/dist";
+
+const SinginPage = () => {
+  const [userName, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  var navigate = useNavigate();
+  const handleChange = () => {
+    setUsername(document.getElementById("username").value)
+    setPassword(document.getElementById("password").value)
+  }
+  useEffect(()=> {
+    handleChange()
+  }, [userName, password])
+  const handleUserLogin = (event) => {
+    const userInfo = {
+      userName: document.getElementById("username").value,
+      password: document.getElementById("password").value,
+    };
+    axios
+      .post(Variables.API_URL + "auth/users/login", userInfo)
+      .then((response) => {
+        localStorage.setItem("token", response.data.token);
+        navigate("/");
+      })
+      .catch((error) => {
+        let errors = error.response.data.errors
+        if (errors.UserName !== undefined){document.querySelector(".signin__username__error").innerText = errors.UserName[0]}
+        else if (errors.Password !== undefined){document.querySelector(".signin__password__error").innerText = errors.Password[0]}
+        else if (errors[0] === "This user does not exist!"){document.querySelector(".signin__username__error").innerText = errors[0]}
+        else if (errors[0] === "Incorrect Password!"){document.querySelector(".signin__password__error").innerText = errors[0]}
+      });
+  };
+
+  return (
+    <section className="signin">
+      <div className="container py-5">
+        <div className="signin__form px-3">
+            <h1 className="text-center py-3">Sign In</h1>
+            <p className="text-center">
+              Don't have an account?{" "}
+              <Link to="/sign_up" className="notRegistered">
+                Sign Up
+              </Link>
+            </p>
+
+            <img
+              className="img-fluid px-5"
+              src={require("./assets/signin.png")}
+              alt=""
+            />
+
+            <form>
+              <div>
+                <input
+                  type="text"
+                  className="form-control mt-3"
+                  id="username"
+                  placeholder="Username"
+                  name="username"
+                  onChange={handleChange}
+                />
+                <p className="signin__input__error signin__username__error">
+                </p>
+                <input
+                  type="password"
+                  className="form-control mt-3"
+                  id="password"
+                  placeholder="Password"
+                  name="password"
+                  onChange={handleChange}
+                />
+                <p className="signin__input__error signin__password__error">
+                </p>
+
+              </div>
+
+              <div>
+                <p className="text-center pt-3">Forgot your password?</p>
+              </div>
+
+              <div className="signin__button text-center pb-4">
+                <input
+                  type="button"
+                  value="Sign in"
+                  className="btn"
+                  onClick={handleUserLogin}
+                />
+              </div>
+            </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SinginPage;
