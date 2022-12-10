@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+nav {
+    display: grid;
+    grid-template-columns: 1.5fr 4fr 2fr;
+    height: 90px;
+}
+nav div {
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.point {
+    color: #FFC515
+}
+nav div a {
+    color: inherit;
+    text-decoration: none;
+}
+body {
+    font-family: helvetica;
+    background-image: url("../Images/picture4.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: white;
+    color: white;
+}
+
+
+.nav__ul ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav__ul ul li {
+    padding: 20px;
+    font-size: 18px;
+    margin: 5px;
+    font-weight: 600;
+
+}
+.nav__ul ul li:hover {
+    color: #FFC515;
+}
+
+.nav__logo h2 {
+    font-size: 36px;
+    font-weight: 600;
+    
+}
+main {
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+main h1 {
+    font-size: 90px;
+    font-weight: 600
+}
+main h1:hover{
+    color: #FFC515;
+}
+
+.menu {
+    display: block;
+    color: black;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu__lunch {
+    display: none;
+}
+.menu__dinner {
+    display: none;
+}
+.menu h1 {
+    font-size: 55px;
+    color: black;   
+    margin: 30px 0;
+}
+
+.menu .buttons {
+    display: flex;
+    width: 85%;
+    justify-content: space-around;
+    margin: 50px;
+
+}
+
+
+
+.menu .buttons button {
+    background-color: #f2f8f9;
+    width: 330px;
+    height: 65px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    border: none;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.buttons button p {
+    padding: 0 20px;
+}
+.buttons button:hover {
+    cursor: pointer;
+}
+
+.our__menu .parts {
+    display: grid;
+    width: 100%;
+    padding: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    color: #7e7e7e;
+}
+
+.our__menu ul {
+    list-style-type: none;
+}
+.our__menu ul li {
+    padding: 10px;
+}
+.our__menu h3 {
+    padding: 10px 60px;
+    font-size: 30px;
+    color: #7e7e7e;
+}
+
+
+.drinks {
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.drinks img {
+    width: 100%;
+    height: 720px;
+    opacity: 1;
+    z-index: -1;
+}
+
+.text {
+    position: absolute;
+    text-align: center;
+    padding-top: 100px;
+}
+.drinks .text {
+    font-size: 20px;
+}
+
+.drinks .parts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+}
+.parts ul li {
+    padding: 15px;
+}
+footer {
+    background-color: rgb(240, 239, 239);
+    color: #616161;
+}
+
+footer .footer{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    padding: 20px 0;
+    padding-right: 40px;
+}
+
+footer p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
