@@ -58,6 +58,14 @@ body {
 
 }
 
+.nav__login {
+    font-size: 25px;
+    color: #FFC515;
+}
+
+nav .menu__link {
+    color: #FFC515;
+}
 main {
     height: 700px;
     display: flex;

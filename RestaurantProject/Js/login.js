@@ -11,12 +11,16 @@ function validate() {
         error.innerText = "Please provide a valid email!";
         error.style.display = "block"
     } else if (!validPass) {
-        error.innerText = "Please provide a valid password!";
+        error.innerText = "Please provide a password with 6 or more characters!";
         error.style.display = "block"
     } else {
         error.style.display = "none"
-        
+        return true;
     }
 }
-
-submit.addEventListener("click", validate)
+function login(){
+    if (validate()){
+        window.location.href = "index.html"
+    }
+}
+submit.addEventListener("click", login)

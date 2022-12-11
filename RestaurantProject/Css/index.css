@@ -52,7 +52,11 @@ body {
     
 }
 .nav__login {
-    font-size: 30px;
+    font-size: 25px;
+    color: #FFC515;
+}
+nav .home__link {
+    color: #FFC515;
 }
 
 main {
