@@ -67,7 +67,7 @@ nav .menu__link {
     color: #FFC515;
 }
 main {
-    height: 700px;
+    height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center
@@ -210,7 +210,7 @@ main h1:hover {
 
 .weeks__dish .text {
     text-align: left;
-    padding: 150px 80px; 
+    padding: 150px 80px;
 
 }
 .weeks__dish .text h1 {
