@@ -67,7 +67,8 @@ nav .home__link {
 }
 
 main {
-    height: 700px;
+    height: 600px;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center
@@ -78,9 +79,25 @@ main h1 {
     font-weight: 600
 }
 
+
 main h1:hover {
     color: #FFC515;
 }
+
+
+.slider__dots {
+    text-align: center;
+    font-size: 100px;
+    color: #FFC515;
+}
+
+.first, .second, .third {
+    cursor: pointer;
+}
+
+
+
+
 
 .welcome {
     display: flex;
@@ -285,7 +302,7 @@ footer p {
 
 
 
-@media (max-width: 678px) {
+@media (max-width: 768px) {
     nav {
         height: 70px;
         width: 100%;
@@ -348,6 +365,7 @@ footer p {
         font-size: 44px;
         margin: 10px 0;
     }
+
     .menu img {
         height: 195vh
     }
@@ -358,6 +376,7 @@ footer p {
         grid-template-rows: 1fr 1fr 1fr;
         gap: 30px;
     }
+
     .menu button {
         width: 150px;
         height: 38px;
@@ -365,6 +384,7 @@ footer p {
         background-color: #FFC515;
         margin: 0px;
     }
+
     footer {
         padding-left: 30px;
     }
