@@ -55,7 +55,6 @@ body {
 .nav__logo h2 {
     font-size: 36px;
     font-weight: 600;
-
 }
 
 .nav__login {
@@ -66,12 +65,14 @@ body {
 nav .menu__link {
     color: #FFC515;
 }
+
 main {
     height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center
 }
+
 
 main h1 {
     font-size: 90px;
@@ -100,6 +101,8 @@ main h1:hover {
     display: none;
 }
 
+
+
 .menu h1 {
     font-size: 55px;
     color: black;
@@ -111,7 +114,6 @@ main h1:hover {
     width: 85%;
     justify-content: space-around;
     margin: 50px;
-
 }
 
 
@@ -127,6 +129,11 @@ main h1:hover {
     align-items: center;
     font-size: 22px;
     font-weight: 600;
+}
+
+.buttons button:hover {
+
+    background-color: #dbf8f9;
 }
 
 .buttons button p {
@@ -197,12 +204,12 @@ main h1:hover {
 .parts ul li {
     padding: 15px;
 }
-.parts ul li:hover{
+
+.parts ul li:hover {
     color: #FFC515;
 }
 
 .weeks__dish {
-    color: black;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -213,15 +220,18 @@ main h1:hover {
     padding: 150px 80px;
 
 }
+
 .weeks__dish .text h1 {
     text-align: left;
     margin: 30px 0;
     font-size: 40px;
 }
+
 .text h3 {
     font-size: 26px;
     margin: 10px 0;
 }
+
 .text p {
     max-width: 500px;
     font-size: 20px;
@@ -246,4 +256,96 @@ footer .footer {
 footer p {
     font-size: 15px;
     font-weight: 600;
+}
+
+
+
+@media (max-width: 678px) {
+    nav {
+        height: 70px;
+        width: 100%;
+    }
+
+    .nav__logo h2 {
+        font-size: 24px;
+
+    }
+
+    .nav__ul ul li {
+        padding: 5px;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .nav__login {
+        font-size: 16px;
+        font-weight: 600;
+        color: #FFC515;
+    }
+
+    body {
+        background-size: 1000px;
+        overflow: none;
+    }
+
+    main h1 {
+        font-size: 55px;
+    }
+
+    main {
+        height: 90vh;
+    }
+
+    .menu .buttons {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+
+    .menu .parts {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .drinks img {
+        height: 190vh;
+    }
+
+    .drinks .parts {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .menu h1 {
+        font-size: 45px;
+        margin: 10px 0;
+    }
+    .drinks .text {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .weeks__dish img {
+        height: 100vh;
+    }
+
+    .weeks__dish .text {
+        text-align: left;
+        padding: 15px;
+        max-width: 300px;
+
+    }
+
+    .weeks__dish .text h1 {
+        text-align: left;
+        margin: 10px 0;
+        font-size: 20px;
+    }
+
+    footer {
+        padding-left: 30px;
+    }
 }

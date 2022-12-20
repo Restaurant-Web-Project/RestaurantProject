@@ -2,11 +2,13 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 nav {
     display: grid;
-    grid-template-columns: 1.5fr 4fr 2fr;
+    grid-template-columns: 1.5fr 4fr 1.5fr;
     height: 90px;
 }
+
 nav div {
     border: 1px solid white;
     display: flex;
@@ -17,10 +19,12 @@ nav div {
 .point {
     color: #FFC515
 }
+
 nav div a {
     color: inherit;
     text-decoration: none;
 }
+
 body {
     font-family: helvetica;
     background-image: url("../Images/picture6.jpg");
@@ -42,6 +46,7 @@ body {
     font-weight: 600;
 
 }
+
 .nav__ul ul li:hover {
     color: #FFC515;
 }
@@ -49,12 +54,14 @@ body {
 .nav__logo h2 {
     font-size: 36px;
     font-weight: 600;
-    
+
 }
+
 .nav__login {
     font-size: 25px;
     color: #FFC515;
 }
+
 nav .home__link {
     color: #FFC515;
 }
@@ -71,7 +78,7 @@ main h1 {
     font-weight: 600
 }
 
-main h1:hover{
+main h1:hover {
     color: #FFC515;
 }
 
@@ -84,7 +91,7 @@ main h1:hover{
 
 .welcome h1 {
     font-size: 55px;
-    color: black;   
+    color: black;
     margin: 20px 0;
 }
 
@@ -105,7 +112,7 @@ main h1:hover{
 .welcome__text div h3 {
     color: black;
     font-size: 28px;
-    margin: 20px; 
+    margin: 20px;
     font-weight: 600;
 }
 
@@ -116,6 +123,7 @@ main h1:hover{
     flex-direction: column;
     align-items: center;
 }
+
 .testimonials img {
     z-index: -1;
 }
@@ -160,7 +168,7 @@ main h1:hover{
 
 .service h1 {
     font-size: 55px;
-    color: black;   
+    color: black;
     margin: 20px 0;
 }
 
@@ -181,7 +189,7 @@ main h1:hover{
 .service__text div h3 {
     color: black;
     font-size: 28px;
-    margin: 20px; 
+    margin: 20px;
     font-weight: 600;
 }
 
@@ -201,6 +209,7 @@ main h1:hover{
     flex-direction: column;
     align-items: center;
 }
+
 .menu img {
     width: 100%;
     height: 720px;
@@ -216,9 +225,11 @@ main h1:hover{
 .menu__text ul {
     list-style-type: none;
 }
+
 .menu__text ul li {
     padding: 20px 0;
 }
+
 .menu__text div {
     width: 350px;
 }
@@ -237,7 +248,7 @@ footer {
     color: #616161;
 }
 
-footer .footer{
+footer .footer {
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -258,7 +269,7 @@ footer {
     color: #616161;
 }
 
-footer .footer{
+footer .footer {
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -270,4 +281,91 @@ footer .footer{
 footer p {
     font-size: 15px;
     font-weight: 600;
+}
+
+
+
+@media (max-width: 678px) {
+    nav {
+        height: 70px;
+        width: 100%;
+    }
+
+    .nav__logo h2 {
+        font-size: 24px;
+
+    }
+
+    .nav__ul ul li {
+        padding: 5px;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .nav__login {
+        font-size: 16px;
+        font-weight: 600;
+        color: #FFC515;
+    }
+
+    body {
+        background-size: 1000px;
+        overflow: none;
+    }
+
+    main h1 {
+        font-size: 55px;
+    }
+
+    main {
+        height: 80vh;
+    }
+
+    .welcome__text {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .testimonials img {
+        height: 100vh;
+    }
+
+    .text {
+        padding-top: 15px;
+    }
+
+    .testimonials .review {
+        padding: 10px 5px;
+    }
+
+    .service__text {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .welcome h1 {
+        font-size: 44px;
+        margin: 10px 0;
+    }
+    .menu img {
+        height: 195vh
+    }
+
+    .menu__text {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 30px;
+    }
+    .menu button {
+        width: 150px;
+        height: 38px;
+        font-size: 16px;
+        background-color: #FFC515;
+        margin: 0px;
+    }
+    footer {
+        padding-left: 30px;
+    }
 }

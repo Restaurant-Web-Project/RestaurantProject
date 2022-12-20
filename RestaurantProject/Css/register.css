@@ -61,3 +61,23 @@ body {
     display: none;
     color:red;
 }
+
+
+@media screen and (max-width: 678px) {
+    .register {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0;
+    }
+
+    .register img {
+        width: 400px;
+    } 
+    
+    body {
+        text-align: center;
+        padding-bottom: 60px;
+    }
+
+}

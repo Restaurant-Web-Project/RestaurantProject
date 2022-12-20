@@ -1,94 +1,98 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 nav {
-    display: grid;
-    grid-template-columns: 1.5fr 4fr 2fr;
-    height: 90px;
+  display: grid;
+  grid-template-columns: 1.5fr 4fr 2fr;
+  height: 90px;
 }
 
 nav div {
-    border: 1px solid white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .point {
-    color: #FFC515
+  color: #FFC515
 }
 
 nav div a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact__link {
+  color: #FFC515
 }
 
 body {
-    font-family: helvetica;
-    background-image: url("../Images/contact.webp");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-color: white;
-    color: white;
+  font-family: helvetica;
+  background-image: url("../Images/contact.webp");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: white;
+  color: white;
 }
 
 
 .nav__ul ul {
-    list-style-type: none;
-    display: flex;
+  list-style-type: none;
+  display: flex;
 }
 
 .nav__ul ul li {
-    padding: 20px;
-    font-size: 18px;
-    margin: 5px;
-    font-weight: 600;
+  padding: 20px;
+  font-size: 18px;
+  margin: 5px;
+  font-weight: 600;
 
 }
 
 .nav__ul ul li:hover {
-    color: #FFC515;
+  color: #FFC515;
 }
 
 .nav__logo h2 {
-    font-size: 36px;
-    font-weight: 600;
+  font-size: 36px;
+  font-weight: 600;
 
 }
 
 .nav__login {
-    font-size: 25px;
-    color: #FFC515;
+  font-size: 25px;
+  color: #FFC515;
 }
 
 main {
-    height: 700px;
-    display: flex;
-    justify-content: center;
-    align-items: center
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center
 }
 
 main h1 {
-    font-size: 90px;
-    font-weight: 600;
+  font-size: 90px;
+  font-weight: 600;
 }
 
-main h1:hover{
-    color: #FFC515;
+main h1:hover {
+  color: #FFC515;
 }
 
 
 
-.section-con{
+.section-con {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
-.section-con{
+.section-con {
   min-height: 100vh;
   background-image: url(../Images/contact1.webp);
   background-size: cover;
@@ -97,12 +101,13 @@ main h1:hover{
   align-items: center;
 }
 
-.contact-section{
+.contact-section {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .contact-info h2 {
   color: black;
   text-align: left;
@@ -111,7 +116,7 @@ main h1:hover{
   margin-bottom: 67px;
 }
 
-.contact-info{
+.contact-info {
   color: black;
   max-width: 500px;
   line-height: 65px;
@@ -119,24 +124,25 @@ main h1:hover{
   font-size: 20px;
 }
 
-.contact-info svg{
+.contact-info svg {
   width: 30px;
   height: 30px;
   margin-right: 20px;
   font-size: 25px;
 }
 
-.contact-form{
+.contact-form {
   max-width: 700px;
   margin-right: 50px;
 }
 
-.contact-info, .contact-form{
+.contact-info,
+.contact-form {
   flex: 1;
 }
 
 
-.contact-form h2{
+.contact-form h2 {
   color: black;
   text-align: center;
   font-size: 40px;
@@ -146,7 +152,7 @@ main h1:hover{
 
 
 
-.contact-form .text-box{
+.contact-form .text-box {
   background: #000;
   color: #fff;
   border: none;
@@ -160,11 +166,11 @@ main h1:hover{
   opacity: 0.9;
 }
 
-.contact-form .text-box:first-child{
+.contact-form .text-box:first-child {
   margin-right: 15px;
 }
 
-.contact-form textarea{
+.contact-form textarea {
   background: #000;
   color: #fff;
   border: none;
@@ -180,7 +186,7 @@ main h1:hover{
   opacity: 0.9;
 }
 
-.contact-form .send-btn{
+.contact-form .send-btn {
   float: right;
   background: black;
   color: #fff;
@@ -197,29 +203,11 @@ main h1:hover{
   transition-property: background;
 }
 
-.contact-form .send-btn:hover{
+.contact-form .send-btn:hover {
   background: #0582E3;
 }
 
-@media screen and (max-width: 950px){
-  .contact-section{
-    flex-direction: column;
-  }
-
-  .contact-info, .contact-form{
-    margin: 30px 50px;
-  }
-
-  .contact-form h2{
-    font-size: 30px;
-  }
-
-  .contact-form .text-box{
-    width: 100%;
-  }
-}
-
-.Rezervation {
+.rezervation {
   font-family: helvetica;
   background-image: url("../Images/reservation.webp");
   background-size: 100%;
@@ -241,7 +229,8 @@ main h1:hover{
   color: white;
   padding-bottom: 30px;
   padding-left: 20px;
-  align-items: center;  ;
+  align-items: center;
+  ;
 }
 
 .second {
@@ -255,6 +244,7 @@ main h1:hover{
   background-color: #fff;
   border-radius: 20px;
 }
+
 .rezerv {
   padding-top: 40px;
   padding-left: 100px;
@@ -280,4 +270,60 @@ main h1:hover{
 
 .platform h2 {
   padding-bottom: 30px;
+}
+
+
+@media (max-width: 678px) {
+  nav {
+    height: 70px;
+    width: 100%;
+  }
+
+  .nav__logo h2 {
+    font-size: 24px;
+
+  }
+
+  .nav__ul ul li {
+    padding: 5px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .nav__login {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFC515;
+  }
+
+  body {
+    background-size: 1000px;
+    overflow: none;
+  }
+
+  main h1 {
+    font-size: 55px;
+  }
+
+  main {
+    height: 80vh;
+  }
+
+  .contact-section {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    margin: 30px 50px;
+  }
+
+  .contact-form h2 {
+    font-size: 30px;
+  }
+
+  .contact-form .text-box {
+    width: 100%;
+  }
 }

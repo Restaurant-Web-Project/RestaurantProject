@@ -2,6 +2,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 main {
     display: flex;
     justify-content: center;
@@ -11,12 +12,14 @@ main {
 
 body {
     font-family: helvetica;
-    
+
 }
+
 .login {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-width: 700px;;
+    max-width: 700px;
+    ;
 }
 
 .login img {
@@ -51,12 +54,31 @@ body {
     font-weight: bold;
     background-color: #57b846;
 }
-.login__button:hover{
+
+.login__button:hover {
     cursor: pointer;
     padding-bottom: 4px;
 }
 
 .login .error {
     display: none;
-    color:red;
+    color: red;
+}
+
+@media screen and (max-width: 678px) {
+    .login {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .login img {
+        width: 400px;
+        margin: auto;
+    } 
+    
+    body {
+        text-align: center;
+        padding: 70px 0;
+    }
 }
