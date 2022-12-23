@@ -1,4 +1,4 @@
-var images = ["../RestaurantProject/Images/chefs.webp", "../RestaurantProject/Images/picture6.jpg", "../RestaurantProject/Images/contact.webp"]
+var images = ["../RestaurantProject/Images/main_2.jpg", "../RestaurantProject/Images/picture6.jpg", "../RestaurantProject/Images/contact.webp"]
 
 const first = document.querySelector(".first")
 const second = document.querySelector(".second")
@@ -25,16 +25,13 @@ function currentDot() {
 function slide() {
     currentDot()
     i++;
-	
     if (i == images.length) {
         i = 0;
     }
-	body.style.backgroundImage = `url(${images[i]}`;
-	
-    setTimeout(slide, 3000)
-	
+    body.style.backgroundImage = `url(${images[i]}`;
 }
-slide()
+currentDot();
+setInterval(slide, 3000)
 first.addEventListener('click', slide)
 second.addEventListener('click', slide)
 third.addEventListener('click', slide)

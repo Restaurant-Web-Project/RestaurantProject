@@ -1,11 +1,19 @@
 const error = document.querySelector(".register .error")
 
 function validate() {
-    let validFirstName = firstName.value.length > 1;
-    let validLastname = lastName.value.length > 1;
-    let validEmail = !(email.value.trim().length === 0 || !email.value.includes("@") || !email.value.includes("."))
+    const firstNameRE = /^[A-Z]{1}[a-z]{2,30}$/;
+    let validFirstName = firstNameRE.test(firstName.value);
+
+    const lastNameRE = /^[A-Z]{1}[a-z]{2,30}$/;
+    let validLastname = lastNameRE.test(lastName.value); 
+
+    const emailRE = /^[A-Za-z0-9]+@[a-zA-z-]+\.com|net|edu$/
+    let validEmail = emailRE.test(email.value)
+
     let validConfirmEmail = email.value === confirmEmail.value;
-    let validPass = password.value.trim().length >= 6;
+
+    const passwordRE = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\.\!\?\@\#\$\%\&])(?=.{6,20})/;
+    let validPass = passwordRE.test(password.value)
 
     if (!validFirstName) {
         error.innerText = "Please provide a valid first name!";
@@ -20,7 +28,7 @@ function validate() {
         error.innerText = "Email doesn't match with confirm email!";
         error.style.display = "block"
     } else if (!validPass) {
-        error.innerText = "Please provide a password with 6 or more characters!";
+        error.innerText = "Please provide a password with 6+ chars, including upper, lowercase and special chars!";
         error.style.display = "block"
     } else {
         error.style.display = "none"
