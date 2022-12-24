@@ -10,7 +10,8 @@ main {
 
 body {
     font-family: helvetica;
-    
+    background: linear-gradient(to right, #ecf3b8, #aeb1b2, #a9f7b3);
+
 }
 .register {
     display: grid;
@@ -22,6 +23,8 @@ body {
 .register img {
     margin: auto;
     width: 100%;
+    border-radius: 40px;
+    padding-right: 10px;
 }
 
 .register form input {
@@ -73,8 +76,8 @@ body {
 
     .register img {
         width: 400px;
-    } 
-    
+    }
+
     body {
         text-align: center;
         padding-bottom: 60px;
