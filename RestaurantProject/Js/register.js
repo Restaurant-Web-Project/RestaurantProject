@@ -1,6 +1,7 @@
 const error = document.querySelector(".register .error")
 
-function validate() {
+function validate(event) {
+    event.preventDefault();
     const firstNameRE = /^[A-Z]{1}[a-z]{2,30}$/;
     let validFirstName = firstNameRE.test(firstName.value);
 
@@ -32,13 +33,10 @@ function validate() {
         error.style.display = "block"
     } else {
         error.style.display = "none"
+        submit.removeAttribute('disabled')
         return true;
     }
 }
 
-function register(){
-    if (validate()){
-        window.location.href = "index.html"
-    }
-}
-submit.addEventListener("click", register)
+
+submit.addEventListener("click", validate)

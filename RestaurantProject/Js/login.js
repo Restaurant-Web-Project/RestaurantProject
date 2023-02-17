@@ -1,6 +1,7 @@
 const error = document.querySelector(".login .error")
 
-function validate() {
+function validate(event) {
+    event.preventDefault();
     const emailRE = /^[A-Za-z0-9]+@[a-zA-z-]+\.com|net|edu$/
     let validEmail = emailRE.test(email.value)
 
@@ -21,9 +22,5 @@ function validate() {
         return true;
     }
 }
-function login(){
-    if (validate()){
-        window.location.href = "index.html"
-    }
-}
-submit.addEventListener("click", login)
+
+submit.addEventListener("click", validate)

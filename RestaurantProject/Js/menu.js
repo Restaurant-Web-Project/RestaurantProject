@@ -6,7 +6,6 @@ const lunchMenu = document.querySelector('.menu__lunch')
 const dinnerMenu = document.querySelector('.menu__dinner')
 
 breakfastButton.addEventListener('click', () => {
-    console.log("here")
     breakfastMenu.style.display = "block"
     dinnerMenu.style.display = "none"
     lunchMenu.style.display = "none"
@@ -17,10 +16,7 @@ lunchButton.addEventListener('click', () => {
     breakfastMenu.style.display = "none"
 })
 dinnerButton.addEventListener('click', () => {
-    console.log("here")
-
     dinnerMenu.style.display = "block"
     lunchMenu.style.display = "none"
     breakfastMenu.style.display = "none"
 })
-console.log("hey")

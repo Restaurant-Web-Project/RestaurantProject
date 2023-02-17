@@ -14,26 +14,26 @@
 <body>
 
     <main>
+
         <div class="register">
             <img src="./Images/picture8.jpg" alt="register">
-            <form action="registerUser.php" method="POST">
+          
+            <form action="./Php/User/registerUser.php" method="POST">
                 <h1>Register</h1>
-                <input type="text" name="firstName" id="firstName" placeholder="First Name" >
-                <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
                 <label>
                     <input type="number" name="age" id="age" placeholder="Age" required>
                 </label>
                 <input type="text" name="address" id="address" placeholder="Address" required>
-                <input type="email" name="email" placeholder="Email" id="email">
-                <input type="email" name="confirmEmail" placeholder="Confirm Email" id="confirmEmail" >
-                <input type="password" name="password" placeholder="Password" id="password">
-
-                <button type="button" class="register__button" id="submit" name="registerBtn">Register</button>
+                <input type="email" name="email" placeholder="Email" id="email" required>
+                <input type="email" name="confirmEmail" placeholder="Confirm Email" id="confirmEmail" required>
+                <input type="password" name="password" placeholder="Password" id="password" required>
+                <button type="submit" class="register__button" id="submit" name="submit" >Register</button>
                 <p class="error"></p>
                 <p>
-                    Have an account? <a href="login.html"><b>Login Instead</b></a>
+                    Have an account? <a href="login.php"><b>Login Instead</b></a>
                 </p>
-
             </form>
         </div>
     </main>
