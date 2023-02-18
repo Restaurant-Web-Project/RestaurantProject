@@ -213,6 +213,7 @@
                 </ul>
             </div>
         </div>
+        <a href="order.php"><button type="button" class="orderNow">Order now</button></a>
     </section>
     <section class="drinks">
         <img src="./Images/picture6.jpg" width="100%">

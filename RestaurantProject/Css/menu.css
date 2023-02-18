@@ -116,6 +116,17 @@ main h1:hover {
     margin: 50px;
 }
 
+.orderNow {
+    width: 200px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #FFC515;
+    margin: 50px;
+    cursor: pointer;
+}
+
+
 
 
 .menu .buttons button {
