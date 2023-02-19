@@ -149,6 +149,28 @@ class UserCrudModel extends DbConnection
                 echo "<script>window.location.href = '../index.php';</script>";
             } else {
                 echo "<script>alert('Registration failed!');</script>";
+                echo "<script>window.location.href = '../register.php';</script>";
+            }
+        } catch (Exception $ex) {
+            return $ex->getMessage();
+        }
+    }
+
+    public function insertByAdmin()
+    {
+        try {
+            $exists = $this->checkIfEmailExists();
+            if ($exists) {
+                echo "<script>alert('A user with this email already exists!')</script>";
+                echo "<script>window.location.href = '../login.php';</script>";
+                return;
+            }
+            $query = "INSERT INTO users(name, surname, age, address, email, password, role) VALUES('$this->name', '$this->surname', '$this->age', '$this->address', '$this->email', '$this->password', '0')";
+            if ($sql = $this->dbConn->query($query)) {
+                echo "<script>alert('You're registered successfully!');</script>";
+                echo "<script>window.location.href = '../../index.php';</script>";
+            } else {
+                echo "<script>alert('Registration failed!');</script>";
                 echo "<script>window.location.href = 'register.php';</script>";
             }
         } catch (Exception $ex) {
