@@ -65,6 +65,9 @@ body {
 nav .menu__link {
     color: #FFC515;
 }
+nav .dashboard__link {
+    color: lightblue;
+}
 
 main {
     height: 120vh;
@@ -356,7 +359,5 @@ footer p {
         font-size: 20px;
     }
 
-    footer {
-        padding-left: 30px;
-    }
+    
 }

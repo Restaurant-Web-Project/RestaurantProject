@@ -20,10 +20,14 @@ nav div {
     color: #FFC515
 }
 
-.about__link {
+.order__link {
     color: #FFC515
 }
 
+
+nav .dashboard__link {
+    color: lightblue;
+}
 nav div a {
     color: inherit;
     text-decoration: none;
@@ -161,7 +165,34 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #2188d8;
 }
+#totalMessage{
+    font-size: 19px;
+    color: lightgreen;
+    font-weight: 700;
+    display: none;
+}
+#total {
+    font-size: 27px;
+    color: #FFC515;
+}
+footer {
+    background-color: rgb(240, 239, 239);
+    color: #616161;
+}
 
+footer .footer {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    padding: 20px 0;
+    padding-right: 40px;
+}
+
+footer p {
+    font-size: 15px;
+    font-weight: 600;
+}
 
 @media screen and (max-width: 768px) {
     form {
@@ -182,23 +213,4 @@ input[type="submit"]:hover {
     input[type="submit"] {
         font-size: 16px;
     }
-}
-
-footer {
-    background-color: rgb(240, 239, 239);
-    color: #616161;
-}
-
-footer .footer {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    justify-content: space-around;
-    padding: 20px 0;
-    padding-right: 40px;
-}
-
-footer p {
-    font-size: 15px;
-    font-weight: 600;
 }

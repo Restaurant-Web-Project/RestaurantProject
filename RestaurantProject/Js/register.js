@@ -1,7 +1,6 @@
 const error = document.querySelector(".register .error")
 
-function validate(event) {
-    event.preventDefault();
+function validate() {
     const firstNameRE = /^[A-Z]{1}[a-z]{2,30}$/;
     let validFirstName = firstNameRE.test(firstName.value);
 
@@ -33,7 +32,6 @@ function validate(event) {
         error.style.display = "block"
     } else {
         error.style.display = "none"
-        submit.removeAttribute('disabled')
         return true;
     }
 }

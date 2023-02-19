@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,34 +13,7 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav__logo">
-            <a href="index.php">
-                <h2>
-                    Pavin<span class="point">.</span>
-                </h2>
-            </a>
-        </div>
-        <div class="nav__ul">
-            <ul>
-                <a href="index.php">
-                    <li class="home__link">Home</li>
-                </a>
-                <a href="about.php">
-                    <li class="about__link">About</li>
-                </a>
-                <a href="menu.php">
-                    <li class="menu__link">Menu</li>
-                </a>
-                <a href="contact.php">
-                    <li class="contact__link">Contact</li>
-                </a>
-            </ul>
-        </div>
-        <div class="nav__login">
-            <a href="login.php">Login</a>
-        </div>
-    </nav>
+    <?php include 'Components/navbar.php' ?>
     <main>
         <h1>The Menu<span class="point">.</span></h1>
     </main>
@@ -213,7 +187,15 @@
                 </ul>
             </div>
         </div>
-        <a href="order.php"><button type="button" class="orderNow">Order now</button></a>
+        <a href="<?php if (isset($_SESSION['role'])) {
+                        echo "order.php";
+                    } else {
+                        echo "login.php";
+                    } ?>">
+            <button type="submit" name="orderNow" class="orderNow" <?php if (!isset($_SESSION['role'])) {
+                                                                        echo "onclick=\"alert('You can\'t make order without being logged in')\"";
+                                                                    } ?>>Order now</button>
+        </a>
     </section>
     <section class="drinks">
         <img src="./Images/picture6.jpg" width="100%">
@@ -285,21 +267,7 @@
             </p>
         </div>
     </section>
-    <footer>
-        <ul class="footer">
-            <li>
-                Pavin Restaurant
-            </li>
-            <li>
-            </li>
-            <li>
-                Copyright ©2022 All rights reserved
-            </li>
-            <li>
-                By Jeton and Albion
-            </li>
-        </ul>
-    </footer>
+    <?php include 'Components/footer.php' ?>
     <script src="Js/menu.js"></script>
 </body>
 

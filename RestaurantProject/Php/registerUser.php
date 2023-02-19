@@ -39,8 +39,7 @@ if (isset($_POST['submit'])) {
 
         $userModel->insert();
     }else {
-        // echo "<script>window.location.href = '../../register.php';</script>";
-
-        echo "<script>document.querySelector('.login .error').innerText = 'you have an error'</script>";
+        echo "<script>alert('Given data is not valid');</script>";
+        echo "<script>window.location.href = '../register.php';</script>";
     }
 }

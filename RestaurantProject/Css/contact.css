@@ -29,6 +29,9 @@ nav div a {
   color: #FFC515
 }
 
+nav .dashboard__link {
+  color: lightblue;
+}
 body {
   font-family: helvetica;
   background-image: url("../Images/contact.webp");

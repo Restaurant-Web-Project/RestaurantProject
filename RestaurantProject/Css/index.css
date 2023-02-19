@@ -5,7 +5,7 @@
 
 nav {
     display: grid;
-    grid-template-columns: 1.5fr 4fr 1.5fr;
+    grid-template-columns: 1.5fr 4fr 2fr;
     height: 90px;
 }
 
@@ -27,12 +27,13 @@ nav div a {
 
 body {
     font-family: helvetica;
-    background-image: url("../Images/picture6.jpg");
+    background-image: url("../Images/picture4.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-color: white;
     color: white;
 }
+
 
 .nav__ul ul {
     list-style-type: none;
@@ -54,7 +55,6 @@ body {
 .nav__logo h2 {
     font-size: 36px;
     font-weight: 600;
-
 }
 
 .nav__login {
@@ -62,9 +62,11 @@ body {
     color: #FFC515;
 }
 
-
 nav .home__link {
     color: #FFC515;
+}
+nav .dashboard__link {
+    color: lightblue;
 }
 
 main {
@@ -92,7 +94,9 @@ main h1:hover {
     color: #FFC515;
 }
 
-.first, .second, .third {
+.first,
+.second,
+.third {
     cursor: pointer;
 }
 
@@ -249,7 +253,7 @@ main h1:hover {
 }
 
 .menu__text div {
-    width: 350px;
+    width: 330px;
 }
 
 .menu button {
@@ -315,7 +319,11 @@ footer p {
     }
 
     main h1 {
-        font-size: 55px;
+        font-size: 52px;
+    }
+
+    .text h1 {
+        font-size: 36px;
     }
 
     main {
@@ -344,13 +352,22 @@ footer p {
         grid-template-rows: 1fr 1fr 1fr;
     }
 
+    .service h1 {
+        text-align: center;
+        font-size: 40px;
+    }
+
     .welcome h1 {
-        font-size: 44px;
+        font-size: 40px;
         margin: 10px 0;
     }
 
     .menu img {
-        height: 195vh
+        height: 195vh;
+    }
+
+    .menu h1 {
+        font-size: 40px;
     }
 
     .menu__text {
@@ -366,9 +383,5 @@ footer p {
         font-size: 16px;
         background-color: #FFC515;
         margin: 0px;
-    }
-
-    footer {
-        padding-left: 30px;
     }
 }

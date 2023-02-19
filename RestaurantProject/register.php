@@ -12,13 +12,27 @@
 </head>
 
 <body>
-
+    <nav>
+        <ul>
+            <a href="index.php">
+                <li class="home__link">Home</li>
+            </a>
+            <a href="about.php">
+                <li class="about__link">About</li>
+            </a>
+            <a href="menu.php">
+                <li class="menu__link">Menu</li>
+            </a>
+            <a href="contact.php">
+                <li class="contact__link">Contact</li>
+            </a>
+        </ul>
+    </nav>
     <main>
-
         <div class="register">
             <img src="./Images/picture8.jpg" alt="register">
-          
-            <form action="./Php/User/registerUser.php" method="POST">
+
+            <form action="Php/registerUser.php" method="POST">
                 <h1>Register</h1>
                 <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
                 <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
@@ -29,7 +43,7 @@
                 <input type="email" name="email" placeholder="Email" id="email" required>
                 <input type="email" name="confirmEmail" placeholder="Confirm Email" id="confirmEmail" required>
                 <input type="password" name="password" placeholder="Password" id="password" required>
-                <button type="submit" class="register__button" id="submit" name="submit" >Register</button>
+                <button type="submit" class="register__button" id="submit" name="submit">Register</button>
                 <p class="error"></p>
                 <p>
                     Have an account? <a href="login.php"><b>Login Instead</b></a>

@@ -4,7 +4,7 @@
   <title>Dashboard</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./Css/users.css">
+  <link rel="stylesheet" href="./Css/menu.css">
 </head>
 <body>
   <header>
@@ -19,7 +19,7 @@
     <h1>Users</h1>
 
     <div class="addUser">
-      <a href="addUser.php" class="button">Add User</a>
+      <a href="userAdd.php" class="button">Add User</a>
     </div>
 
     <table>

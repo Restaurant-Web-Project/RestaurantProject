@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,34 +13,7 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav__logo">
-            <a href="index.php">
-                <h2>
-                    Pavin<span class="point">.</span>
-                </h2>
-            </a>
-        </div>
-        <div class="nav__ul">
-            <ul>
-                <a href="index.php">
-                    <li>Home</li>
-                </a>
-                <a href="about.php">
-                    <li class="about__link"> About</li>
-                </a>
-                <a href="menu.php">
-                    <li>Menu</li>
-                </a>
-                <a href="contact.php">
-                    <li>Contact</li>
-                </a>
-            </ul>
-        </div>
-        <div class="nav__login">
-            <a href="login.php">Login</a>
-        </div>
-    </nav>
+    <?php include 'Components/navbar.php' ?>
     <main>
         <h1>About Us<span class="point">.</span></h1>
     </main>
@@ -170,49 +144,47 @@
 
     <footer class="footer">
         <div class="container1">
-         <div class="row1">
-           <div class="footer-col">
-             <h4>Pages</h4>
-             <ul>
-               <li><a href="index.php">Home</a></li>
-               <li><a href="about.php">About us</a></li>
-               <li><a href="menu.php">menu</a></li>
-               <li><a href="contact.php">Contact us</a></li>
-             </ul>
-           </div>
-           <div class="footer-col">
-             <h4>Log-in/ Register</h4>
-             <ul>
-               <li><a href="login.php">Log-in</a></li>
-               <li><a href="register.php">Register</a></li>
-             </ul>
-           </div>
-           <div class="footer-col">
-             <h4>Sponsors</h4>
-             <ul>
-               <li><a href="https://www.chipotle.com/">Chipotle</a></li>
-               <li><a href="https://www.properpizza.com/">Propper Pizaa</a></li>
-               <li><a href="https://www.rickstein.com/restaurants/the-seafood-restaurant/">Seafood richstein</a></li>
-               <li><a href="https://www.foodpanda.ph/chain/cd8cr/super-sogbu">Super ogbu</a></li>
-             </ul>
-           </div>
-           <div class="footer-col">
-             <h4>follow us</h4>
-             <div class="social-links">
+            <div class="row1">
+                <div class="footer-col">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About us</a></li>
+                        <li><a href="menu.php">menu</a></li>
+                        <li><a href="contact.php">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Log-in/ Register</h4>
+                    <ul>
+                        <li><a href="login.php">Log-in</a></li>
+                        <li><a href="register.php">Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sponsors</h4>
+                    <ul>
+                        <li><a href="https://www.chipotle.com/">Chipotle</a></li>
+                        <li><a href="https://www.properpizza.com/">Propper Pizaa</a></li>
+                        <li><a href="https://www.rickstein.com/restaurants/the-seafood-restaurant/">Seafood richstein</a></li>
+                        <li><a href="https://www.foodpanda.ph/chain/cd8cr/super-sogbu">Super ogbu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
 
-               <a href="https://www.facebook.com/opavinrestaurant/"><i class="fab fa-facebook"></i></a>
-               <a href="https://www.trip.com/travel-guide/foods/padova-1616-restaurant/pavin-caffe-34168618/"><i class="fab fa-twitter"></i></a>
-               <a href="https://www.instagram.com/pavin_restaurantes/"><i class="fab fa-instagram"></i></a>
-               <a href="https://www.linkedin.com/company/pavin-restaurante"><i class="fab fa-linkedin-in"></i></a>
-             </div>
-             <h4>Location</h4>
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.672425429465!2d-50.13462738530982!3d-29.988842781902537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95187324b6b5f787%3A0x866c5bb0c7a538b3!2sPavin%20Restaurantes!5e0!3m2!1ssq!2s!4v1670771089155!5m2!1ssq!2s"
-                   width="250" height="100" style="border:0;" allowfullscreen="" loading="lazy"
-                   referrerpolicy="no-referrer-when-downgrade"></iframe>
-           </div>
-         </div>
+                        <a href="https://www.facebook.com/opavinrestaurant/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.trip.com/travel-guide/foods/padova-1616-restaurant/pavin-caffe-34168618/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/pavin_restaurantes/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/pavin-restaurante"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <h4>Location</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.672425429465!2d-50.13462738530982!3d-29.988842781902537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95187324b6b5f787%3A0x866c5bb0c7a538b3!2sPavin%20Restaurantes!5e0!3m2!1ssq!2s!4v1670771089155!5m2!1ssq!2s" width="250" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </div>
-     </footer>
+    </footer>
 
 </body>
 

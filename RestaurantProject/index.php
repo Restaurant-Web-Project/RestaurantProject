@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,44 +13,9 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav__logo">
-            <a href="index.php">
-                <h2>
-                    Pavin<span class="point">.</span>
-                </h2>
-            </a>
-        </div>
-        <div class="nav__ul">
-            <ul>
-                <a href="index.php">
-                    <li class="home__link">Home</li>
-                </a>
-                <a href="about.php">
-                    <li class="about__link">About</li>
-                </a>
-                <a href="menu.php">
-                    <li class="menu__link">Menu</li>
-                </a>
-                <a href="contact.php">
-                    <li class="contact__link">Contact</li>
-                </a>
-                <?php
-                // if ()
-                echo "<a href='contact.php'>
-                 <li class='contact__link'>Contact</li>
-                  </a>";
-
-                ?>
-            </ul>
-        </div>
-        <div class="nav__login">
-            <a href="login.php">Login</a>
-        </div>
-    </nav>
+    <?php include 'Components/navbar.php' ?>
     <main>
         <h1>Food and more<span class="point">.</span></h1>
-
     </main>
     <p class="slider__dots">
         <span class="first">.</span>
@@ -172,21 +138,7 @@
             <a href="menu.php"><button type="button">See More</button></a>
         </div>
     </section>
-    <footer>
-        <ul class="footer">
-            <li>
-                Pavin Restaurant
-            </li>
-            <li>
-            </li>
-            <li>
-                Copyright ©2022 All rights reserved
-            </li>
-            <li>
-                By Jeton and Albion
-            </li>
-        </ul>
-    </footer>
+    <?php include 'Components/footer.php'?>
     <script src="Js/app.js"></script>
 </body>
 

@@ -1,7 +1,6 @@
 const error = document.querySelector(".login .error")
 
-function validate(event) {
-    event.preventDefault();
+function validate() {
     const emailRE = /^[A-Za-z0-9]+@[a-zA-z-]+\.com|net|edu$/
     let validEmail = emailRE.test(email.value)
 

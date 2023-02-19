@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once 'DbConnection.php';
 class UserCrudModel extends DbConnection
 {
@@ -138,16 +140,16 @@ class UserCrudModel extends DbConnection
             $exists = $this->checkIfEmailExists();
             if ($exists) {
                 echo "<script>alert('A user with this email already exists!')</script>";
-                echo "<script>window.location.href = '../../login.php';</script>";
+                echo "<script>window.location.href = '../login.php';</script>";
                 return;
             }
             $query = "INSERT INTO users(name, surname, age, address, email, password, role) VALUES('$this->name', '$this->surname', '$this->age', '$this->address', '$this->email', '$this->password', '0')";
             if ($sql = $this->dbConn->query($query)) {
                 echo "<script>alert('You're registered successfully!');</script>";
-                echo "<script>window.location.href = '../../index.php';</script>";
+                echo "<script>window.location.href = '../index.php';</script>";
             } else {
                 echo "<script>alert('Registration failed!');</script>";
-                echo "<script>window.location.href = '../../register.php';</script>";
+                echo "<script>window.location.href = 'register.php';</script>";
             }
         } catch (Exception $ex) {
             return $ex->getMessage();
@@ -197,21 +199,17 @@ class UserCrudModel extends DbConnection
                 $stmt->execute();
                 $result = $stmt->get_result();
                 if ($result->num_rows == 1) {
-                    
-                    header("Location: ../../index.php");
+                    $row = $result->fetch_assoc();
+                    $_SESSION['role'] = $row['role'];
+                    echo "<script>alert('The login was successful!');</script>";
+                    echo "<script>window.location.href = '../index.php';</script>";
                 } else {
-                    header("Location: ../../login.php");
-
-                    echo "<script>
-            document.querySelector('.login .error').innerText = 'This error came from php';
-                </script>";
+                    echo "<script>alert('The password is incorrect!');</script>";
+                    echo "<script>window.location.href = '../login.php';</script>";
                 }
             } else {
-            //     echo "<script>
-            // document.querySelector('.login .error').innerText = 'This error came from php';
-            //     </script>";
                 echo "<script>alert(`This email doesn't exist`);</script>";
-                header("Location: ../../login.php");
+                echo "<script>window.location.href = '../login.php';</script>";
             }
         } catch (Exception $ex) {
             return $ex->getMessage();

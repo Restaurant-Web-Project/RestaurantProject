@@ -24,6 +24,9 @@ nav div {
     color: #FFC515
 
 }
+nav .dashboard__link {
+    color: lightblue;
+}
 
 nav div a {
     color: inherit;

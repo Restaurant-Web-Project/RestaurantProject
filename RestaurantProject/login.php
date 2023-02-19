@@ -12,11 +12,26 @@
 </head>
 
 <body>
-
+    <nav>
+        <ul>
+            <a href="index.php">
+                <li class="home__link">Home</li>
+            </a>
+            <a href="about.php">
+                <li class="about__link">About</li>
+            </a>
+            <a href="menu.php">
+                <li class="menu__link">Menu</li>
+            </a>
+            <a href="contact.php">
+                <li class="contact__link">Contact</li>
+            </a>
+        </ul>
+    </nav>
     <main>
         <div class="login">
             <img src="./Images/picture7.jpg" alt="login">
-            <form action="./Php/User/login.php" method="POST">
+            <form action="./Php/login.php" method="POST">
                 <h1>Login</h1>
                 <input type="email" name="email" placeholder="Email" id="email" required>
                 <input type="password" name="password" placeholder="Password" id="password" required>

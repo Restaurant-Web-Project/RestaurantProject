@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,41 +13,7 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav__logo">
-            <a href="index.php">
-                <h2>
-                    Pavin<span class="point">.</span>
-                </h2>
-            </a>
-        </div>
-        <div class="nav__ul">
-            <ul>
-                <a href="index.php">
-                    <li class="home__link">Home</li>
-                </a>
-                <a href="about.php">
-                    <li class="about__link">About</li>
-                </a>
-                <a href="menu.php">
-                    <li class="menu__link">Menu</li>
-                </a>
-                <a href="contact.php">
-                    <li class="contact__link">Contact</li>
-                </a>
-                <?php
-                // if (){
-                echo "<a href='contact.php'>
-                 <li class='contact__link'>Contact</li>
-                  </a>";
-                // }
-                ?>
-            </ul>
-        </div>
-        <div class="nav__login">
-            <a href="login.php">Login</a>
-        </div>
-    </nav>
+    <?php include 'Components/navbar.php' ?>
     <main>
         <h1>Order now<span class="point">.</span></h1>
         <section class="order">
@@ -69,27 +36,14 @@
 
                 <label for="address">Delivery Address</label>
                 <textarea id="address" name="address" placeholder="Enter your delivery address"></textarea>
+                <p id="totalMessage">Order is done successfully! Total price: <span id="total">20$</span>!</p>
 
-                <input type="submit" value="Place Order">
+                <input type="submit" name="submit" value="Place Order">
             </form>
         </section>
 
     </main>
-    <footer>
-        <ul class="footer">
-            <li>
-                Pavin Restaurant
-            </li>
-            <li>
-            </li>
-            <li>
-                Copyright ©2022 All rights reserved
-            </li>
-            <li>
-                By Jeton and Albion
-            </li>
-        </ul>
-    </footer>
+   <?php include 'Components/footer.php'?>
     <script src="Js/app.js"></script>
 </body>
 
