@@ -6,15 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='../Css/form.css'>
-    <title>Add user</title>
+    <title>Edit user</title>
 </head>
 
 <body>
-    <h1>Add User</h1>
+    <h1>Edit User</h1>
     <?php
+    include '../../Php/UserCrudModel.php';
+    $userModel = new UserCrudModel();
+    $id = $_REQUEST['id'];
+    $row = $userModel->get($id);
 
-    require_once("../../Php/UserCrudModel.php");
-    if (isset($_POST['addUser'])) {
+
+    if (isset($_POST["updateUser"])) {
         $firstNameRegex = '/^[A-Z]{1}[a-z]{2,30}$/';
         $lastNameRegex = '/^[A-Z]{1}[a-z]{2,30}$/';
         $emailRegex = '/^[A-Za-z0-9]+@[a-zA-z-]+\.com|net|edu$/';
@@ -37,50 +41,49 @@
         }
 
         if (empty($errors)) {
-            $userModel = new UserCrudModel();
-            $userModel->setName($_POST['firstName']);
-            $userModel->setSurname($_POST['lastName']);
-            $userModel->setAge($_POST['age']);
-            $userModel->setAddress($_POST['address']);
-            $userModel->setEmail($_POST['email']);
-            $userModel->setPassword($_POST['password']);
-            $userModel->setCreatedBy($_SESSION['adminEmail']);
+            $data['id'] = $row['id'];
+            $data['name'] = $_POST['firstName'];
+            $data['surname'] = $_POST['lastName'];
+            $data['age'] = $_POST['age'];
+            $data['address'] = $_POST['address'];
+            $data['email'] = $_POST['email'];
+            $data['password'] = $_POST['password'];
+            $data['createdBy'] = $_SESSION['adminEmail'];
             if ($_POST['role'] == "user") {
-                $userModel->setRole(0);
+                $data['role'] = 0;
             } else {
-                $userModel->setRole(1);
+                $data['role'] = 1;
             }
-
-            $userModel->insertByAdmin();
+            $userModel->update($data);
             echo "<script>window.location.href = 'UsersDashboard.php';</script>";
         } else {
             echo "<script>alert('Given data is not valid');</script>";
-            echo "<script>window.location.href = 'addUser.php';</script>";
+            $id = $_REQUEST['id'];
+            echo "<script>window.location.href = 'editUser.php?id=$id';</script>";
         }
     }
     ?>
     <form action="" method="POST">
         <label for="firstName">Name</label>
-        <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+        <input type="text" name="firstName" id="firstName" placeholder="First Name" value="<?php echo $row['name'] ?>" required>
         <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+        <input type="text" name="lastName" id="lastName" placeholder="Last Name" value="<?php echo $row['surname'] ?>" required>
         <label for="age">Age</label>
-        <input type="number" name="age" id="age" placeholder="Age" required>
+        <input type="number" name="age" id="age" placeholder="Age" value="<?php echo $row['age'] ?>" required>
         <label for="address">Address</label>
-        <input type="text" name="address" id="address" placeholder="Address" required>
+        <input type="text" name="address" id="address" placeholder="Address" value="<?php echo $row['address'] ?>" required>
         <label for="email">Email</label>
-        <input type="email" name="email" placeholder="Email" id="email" required>
+        <input type="email" name="email" placeholder="Email" id="email" value="<?php echo $row['email'] ?>" required>
+
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password" id="password" required>
+        <input type="password" name="password" placeholder="Password" id="password" value="<?php echo $row['password'] ?>" required>
         <label for="role">Role</label>
-        <select id="role" name="role" required>
+        <select id="role" name="role" value="<?php echo $row['role'] ?>" required>
             <option value="user">User</option>
             <option value="admin">Admin</option>
         </select>
-        <input type="submit" name="addUser" value="Add User">
+        <input type="submit" name="updateUser" value="Update User">
     </form>
-
-
 </body>
 
 </html>

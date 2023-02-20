@@ -1,4 +1,5 @@
 <?php
+require_once 'DbConnection.php';
 class FoodCrudModel extends DbConnection{
     private $id;
     private $name;
@@ -6,10 +7,11 @@ class FoodCrudModel extends DbConnection{
     private $price;
     private $dateCreated;
     private $createdBy;
+    private $image;
 
     private $dbConn;
 
-    public function __construct($id = '', $name = '', $description = '', $price = '', $dateCreated='',  $createdBy='')
+    public function __construct($id = '', $name = '', $description = '', $price = '', $dateCreated='',  $createdBy='', $image='')
     {
         $this->id = $id;
         $this->name = $name;
@@ -17,6 +19,7 @@ class FoodCrudModel extends DbConnection{
         $this->price = $price;
         $this->dateCreated = $dateCreated;
         $this->createdBy = $createdBy;
+        $this->image = $image;
 
         $this->dbConn = $this->connect();
     }
@@ -78,6 +81,12 @@ class FoodCrudModel extends DbConnection{
     {
         return $this->createdBy;
     }
+    public function setImage($image){
+        $this->image = $image;
+    }
+    public function getImage(){
+        return $this->image;
+    }
 
 
 
@@ -98,28 +107,28 @@ class FoodCrudModel extends DbConnection{
             return $ex->getMessage();
         }
     }
-    public function insert()
+    
+    public function insertByAdmin()
     {
         try {
             $exists = $this->checkIfFoodExists();
             if ($exists) {
                 echo "<script>alert('The food with this name already exists!')</script>";
-                echo "<script>window.location.href = '../login.php';</script>";
+                echo "<script>window.location.href = '../Menu/addFood.php';</script>";
                 return;
             }
-            $query = "INSERT INTO menu(name, description, price, dateCreated, createdBy) VALUES('$this->name', '$this->description', '$this->price', '$this->dateCreated', '$this->createdBy')";
+            $query = "INSERT INTO menu(name, description, price, dateCreated, createdBy, image) VALUES('$this->name', '$this->description', '$this->price', NOW(), '$this->createdBy', '$this->image')";
             if ($sql = $this->dbConn->query($query)) {
                 echo "<script>alert('Food is added successfully!');</script>";
-                echo "<script>window.location.href = '../index.php';</script>";
+                echo "<script>window.location.href = '../Menu/MenuDashboard.php';</script>";
             } else {
-                echo "<script>alert('Registration failed!');</script>";
-                echo "<script>window.location.href = '../register.php';</script>";
+                echo "<script>alert('Adding the food failed!');</script>";
+                echo "<script>window.location.href = '../Menu/addFood.php';</script>";
             }
         } catch (Exception $ex) {
             return $ex->getMessage();
         }
     }
-
 
     public function getAll()
     {
@@ -133,9 +142,22 @@ class FoodCrudModel extends DbConnection{
         return $data;
     }
 
+    
+    public function get($id)
+    {
+        $data = null;
+        $query = "SELECT * FROM menu WHERE id = '$id'";
+        if ($sql = $this->dbConn->query($query)) {
+            while ($row = $sql->fetch_assoc()) {
+                $data = $row;
+            }
+        }
+        return $data;
+    }
+
     public function update($data)
     {
-        $query = "UPDATE menu SET name='$data[name]', description='$data[description]', price='$data[price]', createdBy='$data[createdBy]', dateCreated='$data[dateCreated]' WHERE id='$data[id] '";
+        $query = "UPDATE menu SET name='$data[name]', description='$data[description]', price='$data[price]', createdBy='$data[createdBy]', dateCreated=NOW() WHERE id='$data[id] '";
         if ($sql = $this->dbConn->query($query)) {
             return true;
         } else {
@@ -155,4 +177,3 @@ class FoodCrudModel extends DbConnection{
     }
 
 }
-?>

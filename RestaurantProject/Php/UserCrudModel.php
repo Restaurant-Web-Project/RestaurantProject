@@ -1,6 +1,7 @@
 <?php
-session_start();
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'DbConnection.php';
 class UserCrudModel extends DbConnection
 {
@@ -13,9 +14,11 @@ class UserCrudModel extends DbConnection
     private $confirmEmail;
     private $password;
     private $role;
+    private $createdBy;
+
     private $dbConn;
 
-    public function __construct($id = '', $name = '', $surname = '', $age = '', $address = '', $email = '', $confirmEmail = '',  $password = '', $role = '')
+    public function __construct($id = '', $name = '', $surname = '', $age = '', $address = '', $email = '', $confirmEmail = '',  $password = '', $role = '', $createdBy = '')
     {
         $this->id = $id;
         $this->name = $name;
@@ -26,6 +29,7 @@ class UserCrudModel extends DbConnection
         $this->confirmEmail = $confirmEmail;
         $this->password = $password;
         $this->role = $role;
+        $this->createdBy = $createdBy;
 
         $this->dbConn = $this->connect();
     }
@@ -117,6 +121,17 @@ class UserCrudModel extends DbConnection
         return $this->role;
     }
 
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+
     public function checkIfEmailExists()
     {
         try {
@@ -143,10 +158,11 @@ class UserCrudModel extends DbConnection
                 echo "<script>window.location.href = '../login.php';</script>";
                 return;
             }
-            $query = "INSERT INTO users(name, surname, age, address, email, password, role) VALUES('$this->name', '$this->surname', '$this->age', '$this->address', '$this->email', '$this->password', '0')";
+            $dateCreated = date("Y-m-d H:i:s");
+            $query = "INSERT INTO users(name, surname, age, address, email, password, role, dateCreated) VALUES('$this->name', '$this->surname', '$this->age', '$this->address', '$this->email', '$this->password', '0', NOW())";
             if ($sql = $this->dbConn->query($query)) {
                 echo "<script>alert('You're registered successfully!');</script>";
-                echo "<script>window.location.href = '../index.php';</script>";
+                echo "<script>window.location.href = '../login.php';</script>";
             } else {
                 echo "<script>alert('Registration failed!');</script>";
                 echo "<script>window.location.href = '../register.php';</script>";
@@ -162,16 +178,16 @@ class UserCrudModel extends DbConnection
             $exists = $this->checkIfEmailExists();
             if ($exists) {
                 echo "<script>alert('A user with this email already exists!')</script>";
-                echo "<script>window.location.href = '../login.php';</script>";
+                echo "<script>window.location.href = ../User/addUser.php';</script>";
                 return;
             }
-            $query = "INSERT INTO users(name, surname, age, address, email, password, role) VALUES('$this->name', '$this->surname', '$this->age', '$this->address', '$this->email', '$this->password', '0')";
+            $query = "INSERT INTO users(name, surname, age, address, email, password, role, dateCreated, createdBy) VALUES('$this->name', '$this->surname', '$this->age', '$this->address', '$this->email', '$this->password', '$this->role', NOW(), '$this->createdBy')";
             if ($sql = $this->dbConn->query($query)) {
-                echo "<script>alert('You're registered successfully!');</script>";
-                echo "<script>window.location.href = '../../index.php';</script>";
+                echo "<script>alert('User is added successfully!');</script>";
+                echo "<script>window.location.href = '../User/UsersDashboard.php';</script>";
             } else {
                 echo "<script>alert('Registration failed!');</script>";
-                echo "<script>window.location.href = 'register.php';</script>";
+                echo "<script>window.location.href = '../User/addUser.php';</script>";
             }
         } catch (Exception $ex) {
             return $ex->getMessage();
@@ -193,12 +209,24 @@ class UserCrudModel extends DbConnection
 
     public function update($data)
     {
-        $query = "UPDATE users SET name='$data[name]', surname='$data[surname]', email='$data[email]', password='$data[password]', address='$data[address]', age='$data[age]', role='$data[role]' WHERE id='$data[id] '";
+        $query = "UPDATE users SET name='$data[name]', surname='$data[surname]', email='$data[email]', password='$data[password]', address='$data[address]', age='$data[age]', role='$data[role]', dateCreated=NOW(), createdBy='$data[createdBy]' WHERE id='$data[id] '";
         if ($sql = $this->dbConn->query($query)) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public function get($id)
+    {
+        $data = null;
+        $query = "SELECT * FROM users WHERE id = '$id'";
+        if ($sql = $this->dbConn->query($query)) {
+            while ($row = $sql->fetch_assoc()) {
+                $data = $row;
+            }
+        }
+        return $data;
     }
 
 
@@ -223,6 +251,9 @@ class UserCrudModel extends DbConnection
                 if ($result->num_rows == 1) {
                     $row = $result->fetch_assoc();
                     $_SESSION['role'] = $row['role'];
+                    if ($row['role'] == 1){
+                        $_SESSION['adminEmail'] = $this->email;
+                    }
                     echo "<script>alert('The login was successful!');</script>";
                     echo "<script>window.location.href = '../index.php';</script>";
                 } else {

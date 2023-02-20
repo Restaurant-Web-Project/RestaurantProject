@@ -1,3 +1,9 @@
+<?php session_start();
+if (!(isset($_SESSION['role']) && $_SESSION['role'] == 1)) {
+  echo "<script>alert('Login with admin account to access Dashboards!');</script>";
+  echo "<script>window.location.href='../login.php'</script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -9,13 +15,8 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-      <div class="navbar">
-        <a class="navbar-brand" href="#">Dashboard</a>
-      </div>
-    </nav>
-  </header>
+
+ 
 
   <div class="container">
     <h1>Dashboards</h1>
@@ -25,12 +26,12 @@
       <div class="card">
         <h2>Users</h2>
         <p>Registered Users</p>
-        <a href="userDashboard.php">View Users</a>
+        <a href="./User/UsersDashboard.php">View Users</a>
       </div>
       <div class="card">
-        <h2>Contact</h2>
+        <h2>Menu</h2>
         <p>Number of Contacts</p>
-        <a href="contactDashboard.php">View Contact</a>
+        <a href="./Menu/MenuDashboard.php">View Menu</a>
       </div>
       <div class="card">
         <h2>Money Donations</h2>
@@ -45,4 +46,5 @@
     </div>
   </div>
 </body>
+
 </html>
