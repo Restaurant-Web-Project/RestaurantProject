@@ -1,6 +1,7 @@
 <?php
 require_once 'DbConnection.php';
-class FoodCrudModel extends DbConnection{
+class FoodCrudModel extends DbConnection
+{
     private $id;
     private $name;
     private $description;
@@ -11,7 +12,7 @@ class FoodCrudModel extends DbConnection{
 
     private $dbConn;
 
-    public function __construct($id = '', $name = '', $description = '', $price = '', $dateCreated='',  $createdBy='', $image='')
+    public function __construct($id = '', $name = '', $description = '', $price = '', $dateCreated = '',  $createdBy = '', $image = '')
     {
         $this->id = $id;
         $this->name = $name;
@@ -81,15 +82,16 @@ class FoodCrudModel extends DbConnection{
     {
         return $this->createdBy;
     }
-    public function setImage($image){
+    public function setImage($image)
+    {
         $this->image = $image;
     }
-    public function getImage(){
+    public function getImage()
+    {
         return $this->image;
     }
 
-
-
+  
     public function checkIfFoodExists()
     {
         try {
@@ -107,7 +109,7 @@ class FoodCrudModel extends DbConnection{
             return $ex->getMessage();
         }
     }
-    
+
     public function insertByAdmin()
     {
         try {
@@ -117,6 +119,7 @@ class FoodCrudModel extends DbConnection{
                 echo "<script>window.location.href = '../Menu/addFood.php';</script>";
                 return;
             }
+            
             $query = "INSERT INTO menu(name, description, price, dateCreated, createdBy, image) VALUES('$this->name', '$this->description', '$this->price', NOW(), '$this->createdBy', '$this->image')";
             if ($sql = $this->dbConn->query($query)) {
                 echo "<script>alert('Food is added successfully!');</script>";
@@ -142,7 +145,7 @@ class FoodCrudModel extends DbConnection{
         return $data;
     }
 
-    
+
     public function get($id)
     {
         $data = null;
@@ -155,9 +158,21 @@ class FoodCrudModel extends DbConnection{
         return $data;
     }
 
+    public function getFoodPrice($name)
+    {
+        $data = null;
+        $query = "SELECT price FROM menu where name='$name'";
+        if ($sql = $this->dbConn->query($query)) {
+            while ($row = $sql->fetch_assoc()) {
+                $data = $row;
+            }
+        }
+        return $data;
+    }
+
     public function update($data)
     {
-        $query = "UPDATE menu SET name='$data[name]', description='$data[description]', price='$data[price]', createdBy='$data[createdBy]', dateCreated=NOW() WHERE id='$data[id] '";
+        $query = "UPDATE menu SET name='$data[name]', description='$data[description]', price='$data[price]', createdBy='$data[createdBy]', dateCreated=NOW(), image='$data[image]' WHERE id='$data[id] '";
         if ($sql = $this->dbConn->query($query)) {
             return true;
         } else {
@@ -175,5 +190,4 @@ class FoodCrudModel extends DbConnection{
             return false;
         }
     }
-
 }

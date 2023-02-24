@@ -13,7 +13,18 @@
 </head>
 
 <body>
-    <?php include 'Components/navbar.php' ?>
+    <?php
+    include 'Components/navbar.php';
+    include("./Php/ContactCrudModel.php");
+    if (isset($_POST['submit'])) {
+        $contactModel = new ContactCrudModel();
+        $contactModel->setName($_POST['name']);
+        $contactModel->setEmail($_POST['email']);
+        $contactModel->setMessage($_POST['message']);
+
+        $contactModel->insert();
+    }
+    ?>
     <main>
         <h1>Contact Us<span class="point">.</span></h1>
     </main>
@@ -36,21 +47,29 @@
                         <path d="M256 512C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256s-114.6 256-256 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
                     </svg>Mon - Sat 8:00 AM to 5:00 PM</div>
             </div>
+
             <div class="contact-form">
                 <h2>Contact Us</h2>
-                <form action="mailto:albionpaqarizi1@gmail.com" method="post" enctype="text/plain" />
-                <input type="text" name="name" class="text-box" placeholder="Your Name" required>
-                <input type="email" name="email" class="text-box" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Your Message" required> </textarea>
-                <input type="submit" name="submit" class="send-btn" value="submit" onclick="submitForm()">
-                </form>
+
+                <div class="contact-form">
+                    <h2>Send a message</h2>
+                    <form action="" mailto="jetonsllamniku@gmail.com" method="post">
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required><br>
+
+                        <input type="email" name="email" class="form-control" placeholder="Your Email" required><br>
+
+                        <textarea name="message" class="form-control" placeholder="Message" required></textarea><br>
+
+                        <button type="submit" name="submit" class="form-control submit" value="submit">Send Message</button>
+
+                    </form>
+                </div>
+
             </div>
         </div>
     </section>
     <hr color="black">
     <br>
-
-    <!-- footeri -->
 
     <footer class="footer">
         <div class="container">

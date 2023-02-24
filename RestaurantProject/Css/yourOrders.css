@@ -35,10 +35,6 @@ body {
 }
 
 
-.hamburger {
-    display: none;
-}
-
 .nav__ul ul {
     list-style-type: none;
     display: flex;

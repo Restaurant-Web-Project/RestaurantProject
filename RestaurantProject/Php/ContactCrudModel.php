@@ -72,6 +72,8 @@ class ContactCrudModel extends DbConnection
 
     public function insert()
     {
+        echo "<script>alert('here ed successfully!');</script>";
+
         try {
             $query = "INSERT INTO contact(name, email, message, dateCreated) VALUES('$this->name', '$this->email','$this->message', NOW())";
             if ($sql = $this->dbConn->query($query)) {

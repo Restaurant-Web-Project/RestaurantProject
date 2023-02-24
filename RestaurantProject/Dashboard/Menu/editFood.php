@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +26,13 @@
         $data['description'] = $_POST['description'];
         $data['price'] = $_POST['price'];
         $data['createdBy'] = $_SESSION['adminEmail'];
-        $foodModel->update($data);
-        echo "<script>window.location.href = 'MenuDashboard.php';</script>";
+        if ($foodModel->update($data)) {
+            echo "<script>alert('Food is updated successfully!')</script>";
+            echo "<script>window.location.href = 'MenuDashboard.php';</script>";
+        } else {
+            echo "<script>alert('Food failed to update!')</script>";
+            echo "<script>window.location.href = 'editFood.php';</script>";
+        };
     }
     ?>
     <form action="" method="POST">
@@ -36,9 +41,9 @@
         <label for="description">Description</label>
         <input type="text" name="description" id="description" placeholder="Description" value="<?php echo $row['description'] ?>" required>
         <label for="price">Price</label>
-        <input type="number" step="0.1" name="price" id="price" placeholder="Description" value="<?php echo $row['price'] ?>" required>
+        <input type="number" step="0.1" name="price" id="price" placeholder="price" value="<?php echo $row['price'] ?>" required>
 
-        <input type="submit" name="updateFood" value="Update Food" onClick="validate">
+        <input type="submit" name="updateFood" value="Update Food">
     </form>
 </body>
 

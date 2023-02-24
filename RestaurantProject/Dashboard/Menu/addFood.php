@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,21 +21,22 @@
         $foodModel->setDescription($_POST['description']);
         $foodModel->setPrice($_POST['price']);
         $foodModel->setCreatedBy($_SESSION['adminEmail']);
-        $foodModel->setImage($_POST['image']);
+
+
+        $foodModel->setImage($image);
         $foodModel->insertByAdmin();
-        echo "<script>window.location.href = 'MenuDashboard.php';</script>";
     }
     ?>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" placeholder="Name"required>
+        <input type="text" name="name" id="name" placeholder="Name" required>
         <label for="description">Description</label>
-        <input type="text" name="description" id="description" placeholder="Description"  required>
+        <input type="text" name="description" id="description" placeholder="Description" required>
         <label for="price">Price</label>
         <input type="number" step="0.1" name="price" id="price" placeholder="Price" required>
-
-        <input type="file" name="image" accept=".png, .gif,.jpg" required>
-        <input type="submit" name="addFood" value="Add Food" >
+        <label for="image">Upload Image</label>
+        <input type="file" name="image" id="image" accept=".png, .gif, .jpg, .jpeg" required value="">
+        <input type="submit" name="addFood" value="Add Food">
     </form>
 
 

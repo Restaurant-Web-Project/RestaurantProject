@@ -93,52 +93,47 @@
                     <i class="fa-solid fa-mug-saucer fa-2x food"></i>
                     <h3>Breakfast</h3>
                     <ul>
-                        <li>
-                            Scrambled Eggs with ham
-                        </li>
-                        <li>
-                            Buttermilk or Buckwheat Pancakes
-                        </li>
-                        <li>
-                            Waffle
-                        </li>
+                        <?php
+                        require_once('./Php/FoodCrudModel.php');
+                        $foodModel = new FoodCrudModel();
+                        $menu = $foodModel->getAll();
+                        $firstPart = array_slice($menu, 0, 3);
+                        foreach ($firstPart as $food) {
+                            $name = $food['name'];
+                            echo "<li>$name</li>";
+                        }
+                        ?>
                     </ul>
                 </div>
                 <div>
                     <i class="fa-solid fa-burger fa-2x food"></i>
                     <h3>Lunch</h3>
                     <ul>
-                        <li>
-                            Scrambled eggs with ham
-                        </li>
-                        <li>
-                            Buttermilk or Buckwheat Pancakes
-                        </li>
-                        <li>
-                            Waffle
-                        </li>
+                        <?php
+                        $secondPart = array_slice($menu, 3, 3);
+                        foreach ($secondPart as $food) {
+                            $name = $food['name'];
+                            echo "<li>$name</li>";
+                        } ?>
                     </ul>
                 </div>
                 <div>
                     <i class="fa-solid fa-plate-wheat fa-2x food"></i>
                     <h3>Dinner</h3>
                     <ul>
-                        <li>
-                            Scrambled eggs with ham
-                        </li>
-                        <li>
-                            Buttermilk or Buckwheat Pancakes
-                        </li>
-                        <li>
-                            Waffle
-                        </li>
+                        <?php
+                        $thirdPart = array_slice($menu, 6, 3);
+                        foreach ($thirdPart as $food) {
+                            $name = $food['name'];
+                            echo "<li>$name</li>";
+                        } ?>
                     </ul>
                 </div>
             </div>
             <a href="menu.php"><button type="button">See More</button></a>
         </div>
     </section>
-    <?php include 'Components/footer.php'?>
+    <?php include 'Components/footer.php' ?>
     <script src="Js/app.js"></script>
 </body>
 

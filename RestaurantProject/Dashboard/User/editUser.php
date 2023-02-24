@@ -53,9 +53,14 @@
                 $data['role'] = 0;
             } else {
                 $data['role'] = 1;
-            }
-            $userModel->update($data);
-            echo "<script>window.location.href = 'UsersDashboard.php';</script>";
+            };
+            if ($userModel->update($data)) {
+                echo "<script>alert('User data is updated successfully!')</script>";
+                echo "<script>window.location.href = 'UsersDashboard.php';</script>";
+            } else {
+                echo "<script>alert('User data failed to update!')</script>";
+                echo "<script>window.location.href = 'editUser.php';</script>";
+            };
         } else {
             echo "<script>alert('Given data is not valid');</script>";
             $id = $_REQUEST['id'];

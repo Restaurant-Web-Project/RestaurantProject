@@ -251,6 +251,7 @@ class UserCrudModel extends DbConnection
                 if ($result->num_rows == 1) {
                     $row = $result->fetch_assoc();
                     $_SESSION['role'] = $row['role'];
+                    $_SESSION['currentUser'] = $row['id'];
                     if ($row['role'] == 1){
                         $_SESSION['adminEmail'] = $this->email;
                     }

@@ -122,13 +122,13 @@ main h1:hover {
     color: #7e7e7e;
     font-size: 17px;
     font-weight: 600;
-    gap: 20px;
+    gap: 10px;
 }
 
 .welcome__text div {
     text-align: center;
     padding: 20px;
-    width: 350px;
+    width: 310px;
 }
 
 .welcome__text div h3 {
@@ -204,8 +204,8 @@ main h1:hover {
 
 .service__text div {
     text-align: center;
-    padding: 20px;
-    width: 350px;
+    padding: 10px;
+    width: 310px;
 }
 
 .service__text div h3 {
@@ -253,7 +253,7 @@ main h1:hover {
 }
 
 .menu__text div {
-    width: 330px;
+    width: 310px;
 }
 
 .menu button {
@@ -266,6 +266,9 @@ main h1:hover {
 }
 
 
+.hamburger {
+    display: none;
+}
 
 
 footer {
@@ -363,7 +366,7 @@ footer p {
     }
 
     .menu img {
-        height: 195vh;
+        height: 1170px;
     }
 
     .menu h1 {
@@ -384,4 +387,44 @@ footer p {
         background-color: #FFC515;
         margin: 0px;
     }
+    
+    .hamburger{ 
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: block;
+    }
+    .nav__ul ul {
+        display: block;
+    }
+    nav {
+        padding-top: 15px;
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 50px;
+        grid-template-rows: 1fr 1fr 1fr;
+        border: none;
+        background-color:black;
+    }
+    nav .nav__logo {
+        display: block;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        border: none;
+    }
+    nav .nav__ul, .nav__login {
+        border: none
+    }
+    .nav__login {
+        padding-left: 10px;
+    }
+    .hide {
+        display: none;
+    }
+    .footer {
+        font-size: 13px;
+    }
 }
+
+

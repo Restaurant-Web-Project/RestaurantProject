@@ -47,30 +47,18 @@
 
 
             <div class="chefs-row">
-                <div class="colon-chefs">
-                    <img src="./Images/1chef.jpg">
-                    <h4>Chef Wolfgang Puck</h4>
-                    <p>Every chef is incredible on his/her own, but there are still factors that one can distinguish
-                        among the finest. One of those is the Chef Wolfgang Puck.
-                        The Wolfgang Puck is the highest honor a chef and a restaurant can receive. People compare them
-                        with ‘the Oscars award’ in the international culinary industry.</p>
-                </div>
-                <div class="colon-chefs">
-                    <img src="./Images/2chef.jpg">
-                    <h4>Chef Candace Nelson</h4>
-                    <p>Chef Candace Nelson is the best chef of all time. During his career, he accumulated a
-                        constellation of 31 Michelin stars! He is the pioneer of perfectionism in French cuisine. Chef
-                        Candace Nelson is also the mentor of the world-famous chef Gordon Ramsay.
-                        The chef carries a hot temper.</p>
-                </div>
-                <div class="colon-chefs">
-                    <img src="./Images/3chef.jpg">
-                    <h4>Chef William James</h4>
-                    <p>Chef William James is one of the most famous chefs in France. He has received 14 Michelin stars
-                        in his career, making him the second-best chef in the world.
-                        The chef received his first Michelin star when he was 26 years old. His flagship restaurant in
-                        Paris, named Rue Balzac, is one of the best in the world.</p>
-                </div>
+                <?php
+                require_once("Php/StafCrudModel.php");
+                $stafModel = new StafCrudModel();
+                $data = $stafModel->getAll();
+                foreach ($data as $row) {
+                    $date = date('d/m/Y', strtotime($row['dateStarted']));
+                    $name = $row['name'];
+                    $description = $row['description'];
+                    echo "<div class='colon-chefs'><img src='./Images/1chef.jpg'><h4>$name</h4><p>Works in our restaurant since: $date.     About: $description</p></div>";
+                }
+                ?>
+               
             </div>
         </div>
     </section>
