@@ -37,101 +37,77 @@
         <div class="menu__breakfast our__menu">
             <h3>Breakfast</h3>
             <div class="parts">
-                <ul>
-                    <li>
-                        <h4>Scrambled Eggs with ham</h4>
-                        with wild mushrooms and asparagus.................................................. 5€
-                    </li>
-                    <li>
-                        <h4>Buttermilk or Buckwheat Pancakes</h4>
-                        with bacon or mauple saussage.......................................................... 4€
-                    </li>
-                    <li>
-                        <h4>Waffle</h4>
-                        with seasonal fruit and whipped cream............................................... 3€
-                    </li>
-                    <li>
-                        <h4>Omelet</h4>
-                        with sausage, spinach, mushrooms, cheddar, and potatoes............... 4.5€
-                    </li>
-                    <li>
-                        <h4>Pancake Combo</h4>
-                        with bacon sausage and two eggs...................................................... 3€
-                    </li>
+            <ul>
+                    <?php
+                    require_once('Php/FoodCrudModel.php');
+                    $foodModel = new FoodCrudModel();
+                    $data = $foodModel->getAll();
+                    $firstPart = array_slice($data, 0, 5);
+                    foreach ($firstPart as $row) {
+                        $date = date('d-m-Y', strtotime($row['dateCreated']));
+                        $image = $row['image'];
+                        $createdBy = $row['createdBy'];
+                        $title = $row['name'];
+                        $desc = $row['description'] . "................";
+                        $price = $row['price'];
+                        echo "<li title='CreatedBy: $createdBy on: $date '>
+                        <img class='foodImage' src='./Images/$image' width='120px' alt='food'>
+                        <h4>$title</h4>$desc $price €</li>";
+                    }
+                    ?>
                 </ul>
                 <ul>
-                    <li>
-                        <h4>Classic Combo</h4>
-                        with bacon, ham and two eggs.......................................................5€
-                    </li>
-                    <li>
-                        <h4>Hot Cakes</h4>
-                        with melty butter and maple syrup................................................. 3€
-                    </li>
-                    <li>
-                        <h4>French Toast</h4>
-                        with powdered sugar, butter, and maple syrup............................... 3€
-                    </li>
-                    <li>
-                        <h4>Breakfast Quesadilla</h4>
-                        with cheese, eggs and salsa..........................................................4.5€
-                    </li>
-                    <li>
-                        <h4>Scrambled eggs</h4>
-                        with cheese and toast.................................................................... 4€
-                    </li>
+                    <?php
+                    $secondPart = array_slice($data, 5, 10);
+                    foreach ($secondPart as $row) {
+                        $date = date('d-m-Y', strtotime($row['dateCreated']));
+                        $image = $row['image'];
+                        $createdBy = $row['createdBy'];
+                        $title = $row['name'];
+                        $desc = $row['description'] . "................";
+                        $price = $row['price'];
+                        echo "<li title='CreatedBy: $createdBy on: $date '>
+                        <img class='foodImage' src='./Images/$image' width='120px' alt='food'>
+                        <h4>$title</h4>$desc $price €</li>";
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
         <div class="menu__lunch our__menu">
             <h3>Lunch</h3>
             <div class="parts">
-                <ul>
-                    <li>
-                        <h4>Lumberjack Omelet</h4>
-                        with ham, sausage, spinach, mushrooms........................................ 5€
-                    </li>
-                    <li>
-                        <h4>The junior</h4>
-                        with tomato, white meat and sausage.............................................. 4€
-                    </li>
-                    <li>
-                        <h4>Chicken meat</h4>
-                        with chicken meat.............................................................................
-                        3€
-                    </li>
-                    <li>
-                        <h4>Beef meat</h4>
-                        with beef
-                        meat................................................................................... 4.5€
-                    </li>
-                    <li>
-                        <h4>Trofta Fish</h4>
-                        with trofta
-                        fish......................................................,.............................. 3€
-                    </li>
+            <ul>
+                    <?php
+                    $firstPart = array_slice($data, 0, 5);
+                    foreach ($firstPart as $row) {
+                        $date = date('d-m-Y', strtotime($row['dateCreated']));
+                        $image = $row['image'];
+                        $createdBy = $row['createdBy'];
+                        $title = $row['name'];
+                        $desc = $row['description'] . "................";
+                        $price = $row['price'];
+                        echo "<li title='CreatedBy: $createdBy on: $date '>
+                        <img class='foodImage' src='./Images/$image' width='120px' alt='food'>
+                        <h4>$title</h4>$desc $price €</li>";
+                    }
+                    ?>
                 </ul>
                 <ul>
-                    <li>
-                        <h4>Cheese Pizza</h4>
-                        with eggs, cheese, tomatoes............................................................ 5€
-                    </li>
-                    <li>
-                        <h4>Veggie Pizza</h4>
-                        with vegetables, cheese, tomatoes................................................... 3€
-                    </li>
-                    <li>
-                        <h4>Pepperoni Pizza</h4>
-                        with powdered pepper, butter, and maple syrup............................... 3.5€
-                    </li>
-                    <li>
-                        <h4>Meat Pizza</h4>
-                        with meat, cheese, eggs and salsa................................................... 4.5€
-                    </li>
-                    <li>
-                        <h4>BBQ chicken Pizza</h4>
-                        with bbq chicken meat....................................................................... 4€
-                    </li>
+                    <?php
+                    $secondPart = array_slice($data, 5, 10);
+                    foreach ($secondPart as $row) {
+                        $date = date('d-m-Y', strtotime($row['dateCreated']));
+                        $image = $row['image'];
+                        $createdBy = $row['createdBy'];
+                        $title = $row['name'];
+                        $desc = $row['description'] . "................";
+                        $price = $row['price'];
+                        echo "<li title='CreatedBy: $createdBy on: $date '>
+                        <img class='foodImage' src='./Images/$image' width='120px' alt='food'>
+                        <h4>$title</h4>$desc $price €</li>";
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
@@ -139,61 +115,46 @@
             <h3>Dinner</h3>
             <div class="parts">
                 <ul>
-                    <li>
-                        <h4>Cheese Pizza</h4>
-                        with eggs, cheese, tomatoes............................................................ 5€
-                    </li>
-                    <li>
-                        <h4>Veggie Pizza</h4>
-                        with vegetables, cheese, tomatoes................................................... 3€
-                    </li>
-                    <li>
-                        <h4>Pepperoni Pizza</h4>
-                        with powdered pepper, butter, and maple syrup............................... 3.5€
-                    </li>
-                    <li>
-                        <h4>Meat Pizza</h4>
-                        with meat, cheese, eggs and salsa................................................... 4.5€
-                    </li>
-                    <li>
-                        <h4>BBQ chicken Pizza</h4>
-                        with bbq chicken meat....................................................................... 4€
-                    </li>
+                    <?php
+                    $firstPart = array_slice($data, 0, 5);
+                    foreach ($firstPart as $row) {
+                        $date = date('d-m-Y', strtotime($row['dateCreated']));
+                        $image = $row['image'];
+                        $createdBy = $row['createdBy'];
+                        $title = $row['name'];
+                        $desc = $row['description'] . "................";
+                        $price = $row['price'];
+                        echo "<li title='CreatedBy: $createdBy on: $date '>
+                        <img class='foodImage' src='./Images/$image' width='120px' alt='food'>
+                        <h4>$title</h4>$desc $price €</li>";
+                    }
+                    ?>
                 </ul>
                 <ul>
-                    <li>
-                        <h4>Lumberjack Omelet</h4>
-                        with ham, sausage, spinach, mushrooms........................................ 5€
-                    </li>
-                    <li>
-                        <h4>The junior</h4>
-                        with tomato, white meat and sausage.............................................. 4€
-                    </li>
-                    <li>
-                        <h4>Chicken meat</h4>
-                        with chicken meat.............................................................................
-                        3€
-                    </li>
-                    <li>
-                        <h4>Beef meat</h4>
-                        with beef
-                        meat................................................................................... 4.5€
-                    </li>
-                    <li>
-                        <h4>Trofta Fish</h4>
-                        with trofta
-                        fish.....................................................,.............................. 3€
-                    </li>
+                    <?php
+                    $secondPart = array_slice($data, 5, 5);
+                    foreach ($secondPart as $row) {
+                        $date = date('d-m-Y', strtotime($row['dateCreated']));
+                        $image = $row['image'];
+                        $createdBy = $row['createdBy'];
+                        $title = $row['name'];
+                        $desc = $row['description'] . "................";
+                        $price = $row['price'];
+                        echo "<li title='CreatedBy: $createdBy on: $date '>
+                        <img class='foodImage' src='./Images/$image' width='120px' alt='food'>
+                        <h4>$title</h4>$desc $price €</li>";
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
-        <a href="<?php if (isset($_SESSION['role'])) {
+        <a href="<?php if (isset($_SESSION['role']) && $_SESSION['role'] == 0) {
                         echo "order.php";
                     } else {
                         echo "login.php";
                     } ?>">
-            <button type="submit" name="orderNow" class="orderNow" <?php if (!isset($_SESSION['role'])) {
-                                                                        echo "onclick=\"alert('You can\'t make order without being logged in')\"";
+            <button type="submit" name="orderNow" class="orderNow" <?php if (!(isset($_SESSION['role'])&& $_SESSION['role'] == 0)) {
+                                                                        echo "onclick=\"alert('You can\'t make order without being logged in as a user!')\"";
                                                                     } ?>>Order now</button>
         </a>
     </section>
@@ -204,48 +165,29 @@
             <h1>Drinks Menu</h1>
             <div class="parts">
                 <ul>
-                    <li>
-                        <h4>Coca Cola</h4>
-                        .............................................................. 2€
-                    </li>
-                    <li>
-                        <h4>Irish Coffee</h4>
-                        .............................................................. 1.5€
-                    </li>
-                    <li>
-                        <h4>American Coffee</h4>
-                        .............................................................. 2.5€
-                    </li>
-                    <li>
-                        <h4>Turkish Coffee</h4>
-                        .............................................................. 1.5€
-                    </li>
-                    <li>
-                        <h4>Fanta</h4>
-                        .............................................................. 2€
-                    </li>
+                    <?php
+                    require_once('./Php/DrinksCrudModel.php');
+                    $drinksModel = new DrinksCrudModel();
+                    $drinks = $drinksModel->getAll();
+                    $firstPartDrinks = array_slice($drinks, 0, 5);
+                    foreach ($firstPartDrinks as $row) {
+                        $title = $row['name'];
+                        $desc = ".....................................";
+                        $price = $row['price'];
+                        echo "<li><h4>$title</h4>$desc $price €</li>";
+                    }
+                    ?>
+
                 </ul>
                 <ul>
-                    <li>
-                        <h4>Golden Eagle</h4>
-                        ................................................................2€
-                    </li>
-                    <li>
-                        <h4>Espresso</h4>
-                        ............................................................... 3€
-                    </li>
-                    <li>
-                        <h4>Makiato</h4>
-                        ............................................................... 3€
-                    </li>
-                    <li>
-                        <h4>Cappucino</h4>
-                        ............................................................... 3€
-                    </li>
-                    <li>
-                        <h4>Juice</h4>
-                        ............................................................... 4€
-                    </li>
+                    <?php
+                    $secondPartDrinks = array_slice($drinks, 5, 5);
+                    foreach ($secondPartDrinks as $row) {
+                        $title = $row['name'];
+                        $desc = ".....................................";
+                        $price = $row['price'];
+                        echo "<li><h4>$title</h4>$desc $price €</li>";
+                    } ?>
                 </ul>
             </div>
         </div>

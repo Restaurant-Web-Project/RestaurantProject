@@ -9,7 +9,7 @@ if (!(isset($_SESSION['role']) && $_SESSION['role'] == 1)) {
 <html>
 
 <head>
-  <title>Menu Dashboard</title>
+  <title>Drinks Dashboard</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Css/dashboard.css">
@@ -36,10 +36,10 @@ if (!(isset($_SESSION['role']) && $_SESSION['role'] == 1)) {
     </ul>
   </nav>
   <div class="container">
-    <h1>Foods</h1>
+    <h1>Drinks</h1>
 
     <div class="add">
-      <a href="addFood.php" class="button">Create Food</a>
+      <a href="addDrink.php" class="button">Create Drink</a>
     </div>
 
     <table>
@@ -47,39 +47,31 @@ if (!(isset($_SESSION['role']) && $_SESSION['role'] == 1)) {
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Description</th>
           <th>Price</th>
-          <th>CreatedBy</th>
-          <th>Image</th>
-          <th>DateCreated</th>
           <th class="change">Change</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        require_once("../../Php/FoodCrudModel.php");
-        $foodModel = new FoodCrudModel();
-        $data = $foodModel->getAll();
+        require_once("../../Php/DrinksCrudModel.php");
+        $drinksModel = new DrinksCrudModel();
+        $data = $drinksModel->getAll();
         if (!empty($data)) {
           foreach ($data as $row) {
         ?>
             <tr>
               <td><?php echo $row['id']; ?></td>
               <td><?php echo $row['name']; ?></td>
-              <td><?php echo substr($row['description'], 0, 20) . "..."; ?></td>
               <td><?php echo $row['price']; ?></td>
-              <td><?php echo substr($row['createdBy'], 0, 12) . "..."; ?></td>
-              <td><img src="../../Images/<?php echo $row['image']; ?>" width="150px" height="100px"></td>
-              <td><?php echo $row['dateCreated']; ?></td>
               <td>
-                <a href="editFood.php?id=<?php echo $row['id']; ?>" class="edit__button btn">Edit</a>
-                <a href="deleteFood.php?id=<?php echo $row['id']; ?>" class="delete__button btn">Delete</a>
+                <a href="editDrink.php?id=<?php echo $row['id']; ?>" class="edit__button btn">Edit</a>
+                <a href="deleteDrink.php?id=<?php echo $row['id']; ?>" class="delete__button btn">Delete</a>
               </td>
             </tr>
         <?php
           }
         } else {
-          echo "There is no food in the database!";
+          echo "There is no drink in the database!";
         }
         ?>
       </tbody>

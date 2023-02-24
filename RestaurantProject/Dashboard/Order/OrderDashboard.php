@@ -36,50 +36,52 @@ if (!(isset($_SESSION['role']) && $_SESSION['role'] == 1)) {
     </ul>
   </nav>
   <div class="container">
-    <h1>Foods</h1>
-
-    <div class="add">
-      <a href="addFood.php" class="button">Create Food</a>
-    </div>
-
+    <h1>Orders</h1>
     <table>
       <thead>
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Description</th>
-          <th>Price</th>
-          <th>CreatedBy</th>
-          <th>Image</th>
-          <th>DateCreated</th>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Address</th>
+          <th>OrderedDate</th>
+          <th>OrderedBy</th>
           <th class="change">Change</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        require_once("../../Php/FoodCrudModel.php");
-        $foodModel = new FoodCrudModel();
-        $data = $foodModel->getAll();
+        require_once("../../Php/OrderCrudModel.php");
+        $orderModel = new OrderCrudModel();
+
+        require_once("../../Php/UserCrudModel.php");
+        $userModel = new UserCrudModel();
+
+        $data = $orderModel->getAll();
         if (!empty($data)) {
           foreach ($data as $row) {
+            $client = $userModel->get($row['orderedBy'])['name'];
         ?>
-            <tr>
+            <tr >
               <td><?php echo $row['id']; ?></td>
               <td><?php echo $row['name']; ?></td>
-              <td><?php echo substr($row['description'], 0, 20) . "..."; ?></td>
-              <td><?php echo $row['price']; ?></td>
-              <td><?php echo substr($row['createdBy'], 0, 12) . "..."; ?></td>
-              <td><img src="../../Images/<?php echo $row['image']; ?>" width="150px" height="100px"></td>
-              <td><?php echo $row['dateCreated']; ?></td>
+              <td><?php echo $row['food']; ?></td>
+              <td><?php echo $row['quantity']; ?></td>
+              <td><?php echo $row['totalPrice']; ?></td>
+              <td><?php echo $row['address']; ?></td>
+              <td><?php echo $row['orderedDate']; ?></td>
+              <td title="<?php echo "This order is done by: $client."?>"><?php echo $row['orderedBy']; ?></td>
               <td>
-                <a href="editFood.php?id=<?php echo $row['id']; ?>" class="edit__button btn">Edit</a>
-                <a href="deleteFood.php?id=<?php echo $row['id']; ?>" class="delete__button btn">Delete</a>
+                <a href="editOrder.php?id=<?php echo $row['id']; ?>" class="edit__button btn">Edit</a>
+                <a href="deleteOrder.php?id=<?php echo $row['id']; ?>" class="delete__button btn">Delete</a>
               </td>
             </tr>
         <?php
           }
         } else {
-          echo "There is no food in the database!";
+          echo "There is no order in the database!";
         }
         ?>
       </tbody>
