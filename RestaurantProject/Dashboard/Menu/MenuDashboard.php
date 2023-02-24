@@ -49,8 +49,7 @@ if (!(isset($_SESSION['role']) && $_SESSION['role'] == 1)) {
           <th>Name</th>
           <th>Description</th>
           <th>Price</th>
-          <th>CreatedBy</th>
-          <th>Image</th>
+          <th>Created</th>
           <th>DateCreated</th>
           <th class="change">Change</th>
         </tr>
@@ -66,10 +65,9 @@ if (!(isset($_SESSION['role']) && $_SESSION['role'] == 1)) {
             <tr>
               <td><?php echo $row['id']; ?></td>
               <td><?php echo $row['name']; ?></td>
-              <td><?php echo substr($row['description'], 0, 20) . "..."; ?></td>
+              <td><?php echo $row['description']; ?></td>
               <td><?php echo $row['price']; ?></td>
-              <td><?php echo substr($row['createdBy'], 0, 12) . "..."; ?></td>
-              <td><img src="../../Images/<?php echo $row['image']; ?>" width="150px" height="100px"></td>
+              <td><?php echo (!empty($row['createdBy']) ? $row['createdBy']. "..." : ""); ?></td>
               <td><?php echo $row['dateCreated']; ?></td>
               <td>
                 <a href="editFood.php?id=<?php echo $row['id']; ?>" class="edit__button btn">Edit</a>
